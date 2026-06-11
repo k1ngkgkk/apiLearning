@@ -25,7 +25,7 @@ async function getWeather(lat, lon) {
     const data = await response.json();
     if (data && data.current) {
       const { temperature_2m, wind_speed_10m, precipitation_probability } = data.current;
-      weatherElement.innerText = `${precipitation_probability}% ${(temperature_2m -32)/1.8}°C ${wind_speed_10m * 1.609344} KMPH`;
+      weatherElement.innerText = `${precipitation_probability}% ${Math.round((temperature_2m -32)/1.8)}°C ${Math.round(wind_speed_10m * 1.609344)} KMPH`;
     }
   } catch (error) {
     console.log(error.message);
